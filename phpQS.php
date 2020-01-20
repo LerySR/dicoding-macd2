@@ -1,7 +1,7 @@
 
 <?php
 
-$target_file = $_FILES["fileToUploads"]["name"];
+$target_file = $_FILES["fileToUpload"]["name"];
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
@@ -82,7 +82,7 @@ if (!isset($_GET["Cleanup"])) {
         $blobClient->createContainer($containerName, $createContainerOptions);
 
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
+        $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
         fclose($myfile);
         
         # Upload file as a block blob
