@@ -2,6 +2,8 @@
 <?php
 
 $target_file = $_FILES["fileToUpload"]["name"];
+echo $target_file;
+echo basename($_FILES["fileToUpload"]["name"]);
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
