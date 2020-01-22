@@ -8,7 +8,6 @@ echo $fileToUpload;
    echo $_FILES["fileToUpload"]["type"];
    
 }
-
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
@@ -57,7 +56,6 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;Acco
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
 
-
 if (!isset($_GET["Cleanup"])) {
     // Create container options object.
     $createContainerOptions = new CreateContainerOptions();
@@ -82,7 +80,7 @@ if (!isset($_GET["Cleanup"])) {
     $createContainerOptions->addMetaData("key1", "value1");
     $createContainerOptions->addMetaData("key2", "value2");
 
-      $containerName = "saya".generateRandomString();
+      $containerName = "aaaaaaaaaa".generateRandomString();
 
     try {
         // Create container.
