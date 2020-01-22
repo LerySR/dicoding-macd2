@@ -1,7 +1,7 @@
 
 <?php
 
-if(isset($_POST["submit"])) {
+
    
 $fileToUpload = "$_FILES["fileToUpload"]["name"];"
 echo $fileToUpload;
