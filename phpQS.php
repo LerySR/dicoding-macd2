@@ -76,7 +76,7 @@ if (!isset($_GET["Cleanup"])) {
     $createContainerOptions->addMetaData("key1", "value1");
     $createContainerOptions->addMetaData("key2", "value2");
 
-      $containerName = "saya".generateRandomString();
+      $containerName = "AZURE".generateRandomString();
 
     try {
         // Create container.
