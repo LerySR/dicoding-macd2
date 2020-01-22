@@ -2,10 +2,14 @@
 <?php
 
 //$target_dir = "Uploads/";
+
+if(isset($_POST["submit"])) {
+   
 $target_file = $_FILES["fileToUpload"]["name"];
 echo $target_file;
-echo $_FILES["name"];
-echo $_FILES["type"];
+}
+
+
 
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
