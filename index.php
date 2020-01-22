@@ -6,13 +6,13 @@
 </head>
 <body>
 <h1>Masukkan file untuk diunggah ke blob azure</h1>
-<form action="phpQs.php" method="post" enctype="multipart/form-data">
-    
-    Select file to upload:
+<form action="phpQs.php" method="post" enctype="multipart/form-data">    
+    <p>Select file to upload:</p>
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload file" name="submit">
-    
     </form>
+    
+ 
 <script type="text/javascript">
     function processImage() {
         // **********************************************
