@@ -1,7 +1,6 @@
 <?php
-if(isset($_POST["submit"])) {
-   
-$fileToUpload = $_FILES["fileToUpload"]["name"];
+
+  $fileToUpload = $_FILES["fileToUpload"]["name"];
 echo $fileToUpload;
 echo $_FILES["fileToUpload"]["type"];
    
@@ -49,7 +48,7 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;AccountKey=9m9tM9Gg8Y3jOzXQd1GTCM/Ho9yhWZsyyKOEPf2iSJByMFGhsDHYg31vTYwXoSTKm8sLP38/VogZXewAbA8NsA=="
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;AccountKey=s7S7KOd/9pUTe+eGPzPCwVFLiWBDkEN2nX8Dox4q8s31Ydl88CT6IclXb7VoTQDT+uOvsST5OMznOLss7V5saA==;EndpointSuffix=core.windows.net"
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
