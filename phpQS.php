@@ -5,8 +5,8 @@
 
 if(isset($_POST["submit"])) {
    
-$target_file = $_FILES["fileToUpload"]["name"];
-echo $target_file;
+$fileToUpload = $_FILES["fileToUpload"]["name"];
+echo $fileToUpload;
 }
 
 
@@ -58,7 +58,7 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;Acco
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 //$target_file = $_FILES["fileToUpload"]["name"];
-$fileToUpload = $target_file;
+
     //$fileToUpload = $_FILES['img']['name'];
 
 if (!isset($_GET["Cleanup"])) {
