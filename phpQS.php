@@ -1,16 +1,14 @@
 
 <?php
 
+if(isset($_POST["submit"])) {
+   
+$fileToUpload = "$_FILES["fileToUpload"]["name"];"
+echo $fileToUpload;
+   echo $_FILES["fileToUpload"]["type"];
+   
+}
 
-
-
-
-
-
-
-
-
-$target_file = $_FILES["fileToUpload"]["name"];
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
@@ -58,7 +56,7 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;Acco
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
-$fileToUpload = $target_file;
+
 
 if (!isset($_GET["Cleanup"])) {
     // Create container options object.
