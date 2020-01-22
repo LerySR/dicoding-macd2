@@ -1,7 +1,8 @@
 
 <?php
 
-
+$target_dir = "./";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
@@ -49,7 +50,7 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;Acco
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 //$target_file = $_FILES["fileToUpload"]["name"];
-$fileToUpload = $_FILES["fileToUpload"]["name"];
+$fileToUpload = $target_file;
     //$fileToUpload = $_FILES['img']['name'];
 
 if (!isset($_GET["Cleanup"])) {
