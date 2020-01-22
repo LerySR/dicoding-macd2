@@ -7,6 +7,8 @@ if(isset($_POST["submit"])) {
    
 $fileToUpload = $_FILES["fileToUpload"]["name"];
 echo $fileToUpload;
+   echo $_FILES["fileToUpload"]["type"];
+   
 }
 
 
