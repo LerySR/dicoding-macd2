@@ -1,18 +1,4 @@
-
 <?php
-
-//$target_dir = "Uploads/";
-
-if(isset($_POST["submit"])) {
-   
-$fileToUpload = "$_FILES["fileToUpload"]["name"];"
-echo $fileToUpload;
-   echo $_FILES["fileToUpload"]["type"];
-   
-}
-
-
-
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
@@ -55,13 +41,18 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;AccountKey=9m9tM9Gg8Y3jOzXQd1GTCM/Ho9yhWZsyyKOEPf2iSJByMFGhsDHYg31vTYwXoSTKm8sLP38/VogZXewAbA8NsA==;EndpointSuffix=core.windows.net";
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;AccountKey=9m9tM9Gg8Y3jOzXQd1GTCM/Ho9yhWZsyyKOEPf2iSJByMFGhsDHYg31vTYwXoSTKm8sLP38/VogZXewAbA8NsA==;EndpointSuffix=core.windows.net;"
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
-//$target_file = $_FILES["fileToUpload"]["name"];
 
-    //$fileToUpload = $_FILES['img']['name'];
+if(isset($_POST["submit"])) {
+   
+$fileToUpload = $_FILES["fileToUpload"]["name"];
+echo $fileToUpload;
+   echo $_FILES["fileToUpload"]["type"];
+   
+}
 
 if (!isset($_GET["Cleanup"])) {
     // Create container options object.
@@ -87,14 +78,14 @@ if (!isset($_GET["Cleanup"])) {
     $createContainerOptions->addMetaData("key1", "value1");
     $createContainerOptions->addMetaData("key2", "value2");
 
-      $containerName = "azuresayasub1".generateRandomString();
+      $containerName = "blockblobs".generateRandomString();
 
     try {
         // Create container.
         $blobClient->createContainer($containerName, $createContainerOptions);
 
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
+        $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
         fclose($myfile);
         
         # Upload file as a block blob
@@ -113,7 +104,6 @@ if (!isset($_GET["Cleanup"])) {
 
         echo "These are the blobs present in the container: ";
 
-        echo $containerName;
         do{
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
             foreach ($result->getBlobs() as $blob)
@@ -167,35 +157,9 @@ else
         echo $code.": ".$error_message."<br />";
     }
 }
-
-$listBlobsOptions = new ListBlobsOptions();
-    $listBlobsOptions->setPrefix("HelloWorld");
-    
-    echo "These are the blobs present in the container: ";
-    
-    do{
-        $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-        foreach ($result->getBlobs() as $blob)
-        {
-            echo $blob->getName().": ".$blob->getUrl()."<br />";
-        }
-        
-        $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-    } while($result->getContinuationToken());
-
-
-
-
-
-
-
-
-
-
 ?>
 
 
 <form method="post" action="phpQS.php?Cleanup&containerName=<?php echo $containerName; ?>">
     <button type="submit">Press to clean up all resources created by this sample</button>
-
 </form>
