@@ -1,7 +1,7 @@
 
 <?php
 
-$target_file = $_FILES["fileToUpload"]["name"]["type"];
+$target_file = '/'($_FILES["fileToUpload"]["name"];)
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
