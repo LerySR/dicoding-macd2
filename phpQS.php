@@ -1,8 +1,8 @@
 
 <?php
 
-$target_dir = "./";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+//$target_dir = "Uploads/";
+$target_file = basename($_FILES["fileToUpload"]["name"]);
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
