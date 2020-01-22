@@ -3,6 +3,7 @@
 
 //$target_dir = "Uploads/";
 $target_file = basename($_FILES["fileToUpload"]["name"]);
+echo $target_file;
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
