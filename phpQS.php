@@ -46,7 +46,8 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;Acco
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
-$fileToUpload = $_FILES["fileToUpload"]["name"];
+$fileToUpload = $_FILES["fileToUpload"]['tmp_name'];
+echo  $_FILES["fileToUpload"]['tmp_name'];
 
 if (!isset($_GET["Cleanup"])) {
     // Create container options object.
