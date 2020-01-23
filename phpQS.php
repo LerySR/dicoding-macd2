@@ -47,7 +47,7 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;Acco
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
 $fileToUpload = $_FILES["fileToUpload"]['tmp_name'];
-echo  $_FILES["fileToUpload"]['tmp_name'];
+//echo  $_FILES["fileToUpload"]['tmp_name'];
 
 if (!isset($_GET["Cleanup"])) {
     // Create container options object.
@@ -84,9 +84,9 @@ if (!isset($_GET["Cleanup"])) {
         fclose($myfile);
         
         # Upload file as a block blob
-        echo "Uploading BlockBlob: ".PHP_EOL;
-        echo $fileToUpload;
-        echo "<br />";
+       // echo "Uploading BlockBlob: ".PHP_EOL;
+       // echo $fileToUpload;
+       // echo "<br />";
         
         $content = fopen($fileToUpload, "r");
 
@@ -97,7 +97,9 @@ if (!isset($_GET["Cleanup"])) {
         $listBlobsOptions = new ListBlobsOptions();
         //$listBlobsOptions->setPrefix("HelloWorld");
 
-        echo "These are the blobs present in the container: ";
+        echo "Url Gambar yang sudah diupload: ";
+        echo "<br/>";
+        echo "Gunakan sebagai analisis gambar di halaman utama ";
 
         do{
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
