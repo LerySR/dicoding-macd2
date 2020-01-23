@@ -104,7 +104,8 @@ if (!isset($_GET["Cleanup"])) {
             foreach ($result->getBlobs() as $blob)
             {
                 echo $blob->getName().": ".$blob->getUrl()."<br />";
-                 echo $blob->getName().": ".$blob->getUrl()."<br />";
+                echo "<br/>";
+                 echo $blob->getUrl()."<br />";
             }
         
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
