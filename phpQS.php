@@ -164,4 +164,4 @@ else
     <button type="submit">Delete File yang sudah diupload</button>
    
 </form>
-  <button href="https://webappsub3.azurewebsites.net">Lakukan analisis gambar!</button>
+  <a href="https://webappsub3.azurewebsites.net">Lakukan analisis gambar!</a>
