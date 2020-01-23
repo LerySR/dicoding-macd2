@@ -1,8 +1,4 @@
-
 <?php
-
-$target_file = $_FILES["fileToUpload"]["name"];
-
 /**----------------------------------------------------------------------------------
 * Microsoft Developer & Platform Evangelism
 *
@@ -45,12 +41,12 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;AccountKey=9m9tM9Gg8Y3jOzXQd1GTCM/Ho9yhWZsyyKOEPf2iSJByMFGhsDHYg31vTYwXoSTKm8sLP38/VogZXewAbA8NsA==";
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=storagesub3;AccountKey=9m9tM9Gg8Y3jOzXQd1GTCM/Ho9yhWZsyyKOEPf2iSJByMFGhsDHYg31vTYwXoSTKm8sLP38/VogZXewAbA8NsA==;EndpointSuffix=core.windows.net";
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
-$fileToUpload = $target_file;
+$fileToUpload = $_FILES["fileToUpload"]["name"];
 
 if (!isset($_GET["Cleanup"])) {
     // Create container options object.
@@ -76,7 +72,7 @@ if (!isset($_GET["Cleanup"])) {
     $createContainerOptions->addMetaData("key1", "value1");
     $createContainerOptions->addMetaData("key2", "value2");
 
-      $containerName = "saya".generateRandomString();
+      $containerName = "blockblobs".generateRandomString();
 
     try {
         // Create container.
@@ -98,11 +94,10 @@ if (!isset($_GET["Cleanup"])) {
 
         // List blobs.
         $listBlobsOptions = new ListBlobsOptions();
-        $listBlobsOptions->setPrefix("HelloWorld");
+        //$listBlobsOptions->setPrefix("HelloWorld");
 
         echo "These are the blobs present in the container: ";
 
-        echo $containerName;
         do{
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
             foreach ($result->getBlobs() as $blob)
@@ -156,35 +151,9 @@ else
         echo $code.": ".$error_message."<br />";
     }
 }
-
-$listBlobsOptions = new ListBlobsOptions();
-    $listBlobsOptions->setPrefix("HelloWorld");
-    
-    echo "These are the blobs present in the container: ";
-    
-    do{
-        $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-        foreach ($result->getBlobs() as $blob)
-        {
-            echo $blob->getName().": ".$blob->getUrl()."<br />";
-        }
-        
-        $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-    } while($result->getContinuationToken());
-
-
-
-
-
-
-
-
-
-
 ?>
 
 
 <form method="post" action="phpQS.php?Cleanup&containerName=<?php echo $containerName; ?>">
     <button type="submit">Press to clean up all resources created by this sample</button>
-
 </form>
