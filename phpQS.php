@@ -105,7 +105,7 @@ if (!isset($_GET["Cleanup"])) {
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
             foreach ($result->getBlobs() as $blob)
             {
-                echo $blob->getName().": ".$blob->getUrl()."<br />";
+                //echo $blob->getName().": ".$blob->getUrl()."<br />";
                 echo "<br/>";
                  echo $blob->getUrl()."<br />";
             }
