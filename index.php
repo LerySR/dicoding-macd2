@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Analyze Sample</title>
+    <title>Analisis Gambar Azure</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <h1>Masukkan file untuk diunggah ke blob azure</h1>
 <form action="phpQS.php" method="post" enctype="multipart/form-data">
     Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" mimetype="image/png">
-    <input type="submit" value="Upload Image" name="submit">
+    <input type="file" name="Masukkan Gambar" id="fileToUpload" accept="image/*" mimetype="image/png">
+    <input type="submit" value="Upload Gambar" name="submit">
 </form>
  
 <script type="text/javascript">
@@ -88,12 +88,12 @@
  <br> <br> <br> <br> <br> <br>
 <h1>Analyze image:</h1>
 
-Enter the URL to an image, then click the <strong>Analyze image</strong> button.
+Masukkan url gambar lalu submit <strong>Analyze image</strong> button.
 <br><br>
-Image to analyze:
+Masukkan URL gambar yang akan dianalisis
 <input type="text" name="inputImage" id="inputImage"
     value="http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg" />
-<button onclick="processImage()">Analyze image</button>
+<button onclick="processImage()">Analisis!</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
     <div id="jsonOutput" style="width:600px; display:table-cell;">
@@ -105,7 +105,7 @@ Image to analyze:
     <div id="imageDiv" style="width:420px; display:table-cell;">
         Source image:
         <br><br>
-        <img id="sourceImage" width="400" />
+        <img id="Gambar yang dianalisis" width="400" />
     <figcaption id="deskripsi"></figcaption>
 
 </div>
