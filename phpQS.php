@@ -82,6 +82,7 @@ if (!isset($_GET["Cleanup"])) {
         // Getting local file so that we can upload it to Azure
         $myfile = fopen($fileToUpload, "r") or die("Unable to open file!");
         fclose($myfile);
+        echo "File sukses terupload!";
         
         # Upload file as a block blob
        // echo "Uploading BlockBlob: ".PHP_EOL;
@@ -161,5 +162,6 @@ else
 
 <form method="post" action="phpQS.php?Cleanup&containerName=<?php echo $containerName; ?>">
     <button type="submit">Delete File yang sudah diupload</button>
-     <button href="https://webappsub3.azurewebsites.net">Lakukan analisis gambar!</button>
+   
 </form>
+  <button href="https://webappsub3.azurewebsites.net">Lakukan analisis gambar!</button>
