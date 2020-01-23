@@ -98,9 +98,11 @@ if (!isset($_GET["Cleanup"])) {
         $listBlobsOptions = new ListBlobsOptions();
         //$listBlobsOptions->setPrefix("HelloWorld");
 
-        echo "Url Gambar yang sudah diupload: ";
+     echo "<br/>";
         echo "<br/>";
         echo "Gunakan sebagai analisis gambar di halaman utama ";
+             echo "<br/>";
+                echo "Url Gambar yang sudah diupload: ";
 
         do{
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
@@ -164,4 +166,4 @@ else
     <button type="submit">Delete File yang sudah diupload</button>
    
 </form>
-  <a href="https://webappsub3.azurewebsites.net">Lakukan analisis gambar!</a>
+  <a href="https://webappsub3.azurewebsites.net">Lakukan analisis gambar! [copykan url file yang sudah diupload]</a>
