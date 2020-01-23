@@ -99,16 +99,16 @@ if (!isset($_GET["Cleanup"])) {
 
         echo "These are the blobs present in the container: ";
 
-        //do{
-          //  $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-            //foreach ($result->getBlobs() as $blob)
-            //{
+        do{
+            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+            foreach ($result->getBlobs() as $blob)
+            {
                 echo $blob->getName().": ".$blob->getUrl()."<br />";
-            //}
+            }
         
-            //$listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        //} while($result->getContinuationToken());
-        //echo "<br />";
+            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+        } while($result->getContinuationToken());
+        echo "<br />";
 
         // Get blob.
         echo "This is the content of the blob uploaded: ";
