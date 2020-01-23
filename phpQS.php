@@ -160,5 +160,6 @@ else
 
 
 <form method="post" action="phpQS.php?Cleanup&containerName=<?php echo $containerName; ?>">
-    <button type="submit">Press to clean up all resources created by this sample</button>
+    <button type="submit">Delete File yang sudah diupload</button>
+     <button href="https://webappsub3.azurewebsites.net">Lakukan analisis gambar!</button>
 </form>
